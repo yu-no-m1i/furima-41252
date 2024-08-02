@@ -64,22 +64,12 @@ Things you may want to cover:
 
 - belongs_to :user
 
-## card table
-| Column                              | Type       | Options                        |
-|-------------------------------------|------------|--------------------------------|
-|user_id |integer	null: false, foreign_key: true|
-|customer_id |string |null: false|
-|card_id |string |null: false|
+
 
 ### Association
 
 - belongs_to :user
 
-## category table
-| Column                              | Type       | Options                        |
-|-------------------------------------|------------|--------------------------------|
-|name |string |null: false|
-|ancestry |string | null: |
 
 ### Association
 
