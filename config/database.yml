@@ -17,13 +17,22 @@ default: &default
   password:
   socket: /tmp/mysql.sock
 
+
 development:
-  <<: *default
   adapter: mysql2
-  username: root
-  password:
-  host: localhost
+  encoding: utf8
   database: furima_41252_development
+  pool: 5
+  username: your_username
+  password: your_password
+  host: localhost
+#　development:
+#  <<: *default
+#  adapter: mysql2
+#  username: root
+#  password:
+#  host: localhost
+#  database: furima_41252_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
