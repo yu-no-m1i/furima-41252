@@ -28,10 +28,7 @@ Things you may want to cover:
 
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
-|nickname |string |null: false|
-|email |string |null: false|
-|encrypted_password |string |null: false|
-|user_image |string |null: |
+
 |introduction |text |null: |
 |family_name |string |null: false|
 |first_name |string |null: false|
@@ -42,33 +39,21 @@ Things you may want to cover:
 ### Association
 
 * has_many :products dependent: :destroy
-* belongs_to :destination dependent: :destroy
+* belongs_to :buyer dependent: :destroy
 * belongs_to :card dependent: :destroy
 
 ## buyer table
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-|user_id	|integer	|null: false, foreign_key: true|
-|family_name	|string	|null: false|
-|first_name	|string	|null: false|
-|family_name_kana	|string	|null: false|
-|first_name_kane	|string	|null: false|
+|user_id	|integer	|null: false|
 |post_code	|string	|null: false|
 |prefecture	|string	|null: false|
 |city	|string	|null: false|
 |address|	string	|null: false|
-|building_name	|string	| null: |
+|building_name	|string	|
 |phone_number	|string	| null: |
+| prefecture_id |string	null: false |
 
-### Association
-
-- belongs_to :user
-
-
-
-### Association
-
-- belongs_to :user
 
 
 ### Association
@@ -101,11 +86,6 @@ Things you may want to cover:
 
 - belongs_to_active_hash :prefecture
 
-## image table
-| Column      | Type       | Options                        |
-|-------------|------------|--------------------------------|
-| image |string |null: false |
-| product_id |integer |null: false, foreign_key: true |
 
 ### Association
 - belongs_to :product
