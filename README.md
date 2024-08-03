@@ -29,9 +29,9 @@ Things you may want to cover:
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
 |nickname |string |null: false|
-|email |string |null: false|
+| email | string | null: false, unique: true |
 |encrypted_password |string |null: false|
-|introduction |text |null: |
+
 |family_name |string |null: false|
 |first_name |string |null: false|
 |family_name_kana |string |null: false|
@@ -39,9 +39,8 @@ Things you may want to cover:
 |birth_day| date| null: false|
 
 ### Association
-
-* has_many :products dependent: :destroy
-* belongs_to :buyer dependent: :destroy
+* has_many :products, dependent: :destroy
+* belongs_to :buyer
 
 ## buyers table
 | Column                              | Type       | Options                        |
@@ -51,7 +50,7 @@ Things you may want to cover:
 |address|	string	|null: false|
 |building_name	|string	|
 |phone_number	|string	| null: false|
-| prefecture_id |string	null: false |
+| prefecture_id |integer| null: false |
 
 
 
@@ -71,17 +70,17 @@ Things you may want to cover:
 | shipping_days |integer	|null: false |
 | prefecture_id |integer|
 | judgment |string |
-| category_id |references |null: false, foreign_key: true |
 | brand_id |references |null: false, foreign_key: true |
 | shipping_id |references |null: false, foreign_key: true |
-| user_id |references |null: false, foreign_key: true |
+| user |references |null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user dependent: :destroy
 
 
-## brand table
+## history table
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
-| name     | string       | index: true                    |
+| user |references |null: false, foreign_key: true |
+| shippng_id |references |null: false, foreign_key: true |
