@@ -28,7 +28,9 @@ Things you may want to cover:
 
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
-
+|nickname |string |null: false|
+|email |string |null: false|
+|encrypted_password |string |null: false|
 |introduction |text |null: |
 |family_name |string |null: false|
 |first_name |string |null: false|
@@ -41,12 +43,10 @@ Things you may want to cover:
 * has_many :products dependent: :destroy
 * belongs_to :buyer dependent: :destroy
 
-## buyer table
+## buyers table
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-|user_id	|references	|null: false|
 |post_code	|string	|null: false|
-|prefecture	|string	|null: false|
 |city	|string	|null: false|
 |address|	string	|null: false|
 |building_name	|string	|
@@ -59,7 +59,7 @@ Things you may want to cover:
 
 - has_many :products
 
-## product table
+## products table
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
 | name |string |null: false |
@@ -71,9 +71,9 @@ Things you may want to cover:
 | shipping_days |integer	|null: false |
 | prefecture_id |integer|
 | judgment |string |
-| category_id |reference |null: false, foreign_key: true |
-| brand_id |ireference |null: false, foreign_key: true |
-| shipping_id |reference |null: false, foreign_key: true |
+| category_id |references |null: false, foreign_key: true |
+| brand_id |references |null: false, foreign_key: true |
+| shipping_id |references |null: false, foreign_key: true |
 | user_id |references |null: false, foreign_key: true |
 
 ### Association
@@ -81,14 +81,7 @@ Things you may want to cover:
 - belongs_to :user dependent: :destroy
 
 
-
-### Association
-- belongs_to :product
-
 ## brand table
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
 | name     | string       | index: true                    |
-
-### Association
-- has_many :products
