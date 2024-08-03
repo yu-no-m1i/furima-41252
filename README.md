@@ -40,7 +40,6 @@ Things you may want to cover:
 
 * has_many :products dependent: :destroy
 * belongs_to :buyer dependent: :destroy
-* belongs_to :card dependent: :destroy
 
 ## buyer table
 | Column                              | Type       | Options                        |
@@ -67,15 +66,15 @@ Things you may want to cover:
 | price |integer |null: false |
 | description |text |null: false |
 | status |string |null: false |
-| size |string |null: false |
-| shipping_cost |string	null: false |
-| shipping_days |string	null: false |
-| prefecture_id |string	null: false |
+| size |string |
+| shipping_cost |integer	|null: false |
+| shipping_days |integer	|null: false |
+| prefecture_id |integer|
 | judgment |string |
-| category_id |integer |null: false, foreign_key: true |
-| brand_id |integer |null: false, foreign_key: true |
-| shipping_id |integer |null: false, foreign_key: true |
-| user_id |integer |null: false, foreign_key: true |
+| category_id |reference |null: false, foreign_key: true |
+| brand_id |ireference |null: false, foreign_key: true |
+| shipping_id |reference |null: false, foreign_key: true |
+| user_id |references |null: false, foreign_key: true |
 
 ### Association
 
