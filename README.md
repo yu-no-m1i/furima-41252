@@ -24,14 +24,13 @@ Things you may want to cover:
 * ...
 # DB 設計
 
-## user table
+## users table
 
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
 |nickname |string |null: false|
 | email | string | null: false, unique: true |
 |encrypted_password |string |null: false|
-
 |family_name |string |null: false|
 |first_name |string |null: false|
 |family_name_kana |string |null: false|
@@ -43,7 +42,7 @@ Things you may want to cover:
 * has_many :orders
 * 
 
-## buyer table
+## buyers table
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
 |post_code	|string	|null: false|
@@ -58,7 +57,7 @@ Things you may want to cover:
 ### Association
 * belongs_to :history
 
-## product table
+## products table
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
 | name |string |null: false |
@@ -75,7 +74,7 @@ Things you may want to cover:
 - belongs_to :user
 * has_one :history
 
-## history table
+## historys table
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
 | user |references |null: false, foreign_key: true |
