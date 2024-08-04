@@ -39,8 +39,9 @@ Things you may want to cover:
 |birth_day| date| null: false|
 
 ### Association
-* has_many :products, dependent: :destroy
-* belongs_to :buyer
+* has_many :products
+* has_many :orders
+* 
 
 ## buyers table
 | Column                              | Type       | Options                        |
@@ -51,7 +52,8 @@ Things you may want to cover:
 |building_name	|string	|
 |phone_number	|string	| null: false|
 | prefecture_id |integer| null: false |
-
+| user      | references | null: false, foreign_key: true |
+| product   | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -64,23 +66,24 @@ Things you may want to cover:
 | name |string |null: false |
 | price |integer |null: false |
 | description |text |null: false |
-| status |string |null: false |
-| size |string |
 | shipping_cost |integer	|null: false |
 | shipping_days |integer	|null: false |
 | prefecture_id |integer|
-| judgment |string |
 | brand_id |references |null: false, foreign_key: true |
 | shipping_id |references |null: false, foreign_key: true |
 | user |references |null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user dependent: :destroy
-
+- belongs_to :user
+* has_one :history
 
 ## history table
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
 | user |references |null: false, foreign_key: true |
 | shippng_id |references |null: false, foreign_key: true |
+
+### Association
+belongs_to :user
+belongs_to :shipping
