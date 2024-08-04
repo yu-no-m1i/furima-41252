@@ -24,7 +24,7 @@ Things you may want to cover:
 * ...
 # DB 設計
 
-## users table
+## user table
 
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
@@ -43,7 +43,7 @@ Things you may want to cover:
 * has_many :orders
 * 
 
-## buyers table
+## buyer table
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
 |post_code	|string	|null: false|
@@ -52,29 +52,26 @@ Things you may want to cover:
 |building_name	|string	|
 |phone_number	|string	| null: false|
 | prefecture_id |integer| null: false |
-| user      | references | null: false, foreign_key: true |
-| product   | references | null: false, foreign_key: true |
+| history  | references | null: false, foreign_key: true |
 
 
 ### Association
+* belongs_to :history
 
-- has_many :products
-
-## products table
+## product table
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
 | name |string |null: false |
 | price |integer |null: false |
+| status_id |integer |null: false |
+| category_id |integer |null: false |
 | description |text |null: false |
-| shipping_cost |integer	|null: false |
-| shipping_days |integer	|null: false |
-| prefecture_id |integer|
-| brand_id |references |null: false, foreign_key: true |
-| shipping_id |references |null: false, foreign_key: true |
+| shipping_cost_id |integer	|null: false |
+| shipping_day_id |integer	|null: false |
+| prefecture_id |integer|null: false |
 | user |references |null: false, foreign_key: true |
 
 ### Association
-
 - belongs_to :user
 * has_one :history
 
@@ -82,8 +79,10 @@ Things you may want to cover:
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
 | user |references |null: false, foreign_key: true |
-| shippng_id |references |null: false, foreign_key: true |
+| product |references |null: false, foreign_key: true |
 
 ### Association
+has_one :buyer
+
 belongs_to :user
-belongs_to :shipping
+belongs_to :product
