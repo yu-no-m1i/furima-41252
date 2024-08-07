@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
       validates :nickname, presence: true
       validates :family_name, presence: true, format: { with: /\A[ぁ-んァ-ヶー一-龠々]+\z/, message: 'は全角の漢字・ひらがな・カタカナで入力してください' }
       validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶー一-龠々]+\z/, message: 'は全角の漢字・ひらがな・カタカナで入力してください' }
